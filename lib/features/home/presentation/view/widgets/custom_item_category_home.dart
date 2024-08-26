@@ -12,9 +12,12 @@ class CustomItemCategoryHome extends StatelessWidget {
       onTap: () {
         GoRouter.of(context).push(GoRouterManager.kDetailsScreen);
       },
-      child: Image.asset(
-        imageMovie,
-        fit: BoxFit.fill,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Image.asset(
+          imageMovie,
+          fit: BoxFit.fill,
+        ),
       ),
     );
   }

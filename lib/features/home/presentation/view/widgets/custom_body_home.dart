@@ -21,11 +21,11 @@ class CustomBodyHome extends StatelessWidget {
         body: const TabBarView(
           children: [
             CustomGridviewCategoryHome(imageMovie: imageTest),
+            CustomGridviewCategoryHome(imageMovie: imageTest1),
+            CustomGridviewCategoryHome(imageMovie: imageTest2),
             CustomGridviewCategoryHome(imageMovie: imageTest),
-            CustomGridviewCategoryHome(imageMovie: imageTest),
-            CustomGridviewCategoryHome(imageMovie: imageTest),
-            CustomGridviewCategoryHome(imageMovie: imageTest),
-            CustomGridviewCategoryHome(imageMovie: imageTest),
+            CustomGridviewCategoryHome(imageMovie: imageTest1),
+            CustomGridviewCategoryHome(imageMovie: imageTest2),
           ],
         ),
       ),
