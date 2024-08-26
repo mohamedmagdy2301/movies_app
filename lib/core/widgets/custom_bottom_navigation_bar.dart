@@ -28,13 +28,13 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       items: const [
         BottomNavigationBarItem(
           backgroundColor: Colors.transparent,
-          icon: Icon(Icons.home),
-          label: 'Home',
+          icon: Icon(Icons.search),
+          label: 'Search',
         ),
         BottomNavigationBarItem(
           backgroundColor: Colors.transparent,
-          icon: Icon(Icons.search),
-          label: 'Search',
+          icon: Icon(Icons.home),
+          label: 'Home',
         ),
         BottomNavigationBarItem(
           backgroundColor: Colors.transparent,
