@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/core/utils/colors_manager.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({super.key});
+  const CustomBottomNavigationBar(
+      {super.key, required this.currentIndex, required this.onTap});
+  final int currentIndex;
 
+  final void Function(int)? onTap;
   @override
   State<CustomBottomNavigationBar> createState() =>
       _CustomBottomNavigationBarState();
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -21,12 +23,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       elevation: 0,
       iconSize: 25,
       selectedFontSize: 11,
-      currentIndex: _currentIndex,
-      onTap: (index) {
-        setState(() {
-          _currentIndex = index;
-        });
-      },
+      currentIndex: widget.currentIndex,
+      onTap: widget.onTap,
       items: const [
         BottomNavigationBarItem(
           backgroundColor: Colors.transparent,

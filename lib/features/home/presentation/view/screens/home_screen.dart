@@ -11,20 +11,30 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final int _currentIndex = 0;
+  int _currentIndex = 0;
 
   final List<Widget> _tabs = [
     const CustomBodyHome(),
     const SearchScreen(),
     const SearchScreen(),
   ];
+  onTap(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 6,
-        child: Scaffold(
-          body: _tabs[_currentIndex],
-          bottomNavigationBar: const CustomBottomNavigationBar(),
-        ));
+      length: 6,
+      child: Scaffold(
+        body: _tabs[_currentIndex],
+        bottomNavigationBar: CustomBottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: onTap,
+        ),
+      ),
+    );
   }
 }
