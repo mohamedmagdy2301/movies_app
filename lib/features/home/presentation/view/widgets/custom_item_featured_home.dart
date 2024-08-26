@@ -9,7 +9,7 @@ class CustomItemFeaturedHome extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 2.7 / 4,
       child: Image.asset(
-        imageText,
+        imageTest,
         fit: BoxFit.fill,
       ),
     );
