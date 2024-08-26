@@ -9,7 +9,7 @@ class TabBarBuild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TabBar(
-      padding: const EdgeInsets.all(9),
+      padding: const EdgeInsets.symmetric(vertical: 15),
       labelStyle: const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: 16,
@@ -24,7 +24,7 @@ class TabBarBuild extends StatelessWidget {
       indicatorColor: const Color.fromARGB(192, 255, 255, 255),
       indicatorWeight: 2,
       indicatorSize: TabBarIndicatorSize.tab,
-      indicatorPadding: const EdgeInsets.all(6),
+      indicatorPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 2),
       indicator: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: ColorsManager.kGrey,

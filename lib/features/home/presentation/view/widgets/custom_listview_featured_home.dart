@@ -18,7 +18,7 @@ class _CustomListViewFeaturedHomeState
       child: Padding(
         padding: const EdgeInsets.only(top: 10),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.35,
+          height: MediaQuery.of(context).size.height * 0.3,
           child: PageView.builder(
             padEnds: false,
             itemCount: 10,
@@ -31,7 +31,9 @@ class _CustomListViewFeaturedHomeState
                 child: AnimatedPadding(
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.fastOutSlowIn,
-                  padding: EdgeInsets.all(_index == index ? 5 : 15),
+                  padding: _index == index
+                      ? const EdgeInsets.symmetric(horizontal: 10)
+                      : const EdgeInsets.symmetric(vertical: 10),
                   child: const CustomItemFeaturedHome(),
                 ),
               );
