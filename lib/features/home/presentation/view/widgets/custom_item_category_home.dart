@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/core/constant.dart';
+import 'package:go_router/go_router.dart';
+import 'package:movies_app/core/routers/routers_manager.dart';
 
 class CustomItemCategoryHome extends StatelessWidget {
   const CustomItemCategoryHome({super.key, required this.imageMovie});
@@ -7,9 +8,14 @@ class CustomItemCategoryHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      imageMovie,
-      fit: BoxFit.fill,
+    return GestureDetector(
+      onTap: () {
+        GoRouter.of(context).push(GoRouterManager.kDetailsScreen);
+      },
+      child: Image.asset(
+        imageMovie,
+        fit: BoxFit.fill,
+      ),
     );
   }
 }
