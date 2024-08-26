@@ -7,7 +7,10 @@ class CustomTapbarHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SliverToBoxAdapter(
-      child: TabBarBuild(),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        child: TabBarBuild(),
+      ),
     );
   }
 }

@@ -10,24 +10,21 @@ class CustomBodyHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) => [
-          const CustomAppBarHome(),
-          const CustomListViewFeaturedHome(),
-          const CustomTapbarHome(),
+    return NestedScrollView(
+      headerSliverBuilder: (context, innerBoxIsScrolled) => [
+        const CustomAppBarHome(),
+        const CustomListViewFeaturedHome(),
+        const CustomTapbarHome(),
+      ],
+      body: const TabBarView(
+        children: [
+          CustomGridviewCategoryHome(imageMovie: imageTest),
+          CustomGridviewCategoryHome(imageMovie: imageTest1),
+          CustomGridviewCategoryHome(imageMovie: imageTest2),
+          CustomGridviewCategoryHome(imageMovie: imageTest),
+          CustomGridviewCategoryHome(imageMovie: imageTest1),
+          CustomGridviewCategoryHome(imageMovie: imageTest2),
         ],
-        body: const TabBarView(
-          children: [
-            CustomGridviewCategoryHome(imageMovie: imageTest),
-            CustomGridviewCategoryHome(imageMovie: imageTest1),
-            CustomGridviewCategoryHome(imageMovie: imageTest2),
-            CustomGridviewCategoryHome(imageMovie: imageTest),
-            CustomGridviewCategoryHome(imageMovie: imageTest1),
-            CustomGridviewCategoryHome(imageMovie: imageTest2),
-          ],
-        ),
       ),
     );
   }

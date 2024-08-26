@@ -7,18 +7,21 @@ class CustomGridviewCategoryHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      itemCount: 20,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      child: GridView.builder(
+        itemCount: 20,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 10,
+        ),
+        itemBuilder: (context, index) {
+          return CustomItemCategoryHome(
+            imageMovie: imageMovie,
+          );
+        },
       ),
-      itemBuilder: (context, index) {
-        return CustomItemCategoryHome(
-          imageMovie: imageMovie,
-        );
-      },
     );
   }
 }

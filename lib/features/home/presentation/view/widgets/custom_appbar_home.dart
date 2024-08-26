@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/utils/colors_manager.dart';
 
 class CustomAppBarHome extends StatelessWidget {
   const CustomAppBarHome({super.key});
@@ -6,7 +7,7 @@ class CustomAppBarHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SliverAppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: ColorsManager.kPrimaryColorBlack,
       elevation: 0,
       floating: true,
       snap: true,

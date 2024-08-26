@@ -16,7 +16,7 @@ class _CustomListViewFeaturedHomeState
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Padding(
-        padding: const EdgeInsets.only(top: 10),
+        padding: const EdgeInsets.symmetric(vertical: 15),
         child: SizedBox(
           height: MediaQuery.of(context).size.height * 0.3,
           child: PageView.builder(
@@ -32,8 +32,8 @@ class _CustomListViewFeaturedHomeState
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.fastOutSlowIn,
                   padding: _index == index
-                      ? const EdgeInsets.symmetric(horizontal: 10)
-                      : const EdgeInsets.symmetric(vertical: 10),
+                      ? const EdgeInsets.symmetric(horizontal: 5)
+                      : const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
                   child: const CustomItemFeaturedHome(),
                 ),
               );
