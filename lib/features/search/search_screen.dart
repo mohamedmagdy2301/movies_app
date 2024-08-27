@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/features/search/widgets/custom_appbar_search.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -6,12 +7,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: Text(
-          'Search Screen',
-          style: TextStyle(color: Colors.white, fontSize: 30),
-        ),
-      ),
+      appBar: CustomAppBarSearch(),
     );
   }
 }
