@@ -1,22 +1,24 @@
-import 'package:equatable/equatable.dart';
+// ignore_for_file: overridden_fields, annotate_overrides
 
-class MovieModel extends Equatable {
-  final bool? adult;
-  final String? backdropPath;
-  final List<int>? genreIds;
-  final int? id;
-  final String? originalLanguage;
-  final String? originalTitle;
-  final String? overview;
-  final double? popularity;
-  final String? posterPath;
-  final String? releaseDate;
-  final String? title;
-  final bool? video;
-  final double? voteAverage;
-  final int? voteCount;
+import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 
-  const MovieModel({
+class MovieModel extends MovieEntity {
+  bool? adult;
+  String? backdropPath;
+  List<int>? genreIds;
+  int? id;
+  String? originalLanguage;
+  String? originalTitle;
+  String? overview;
+  double? popularity;
+  String? posterPath;
+  String? releaseDate;
+  String? title;
+  bool? video;
+  double? voteAverage;
+  int? voteCount;
+
+  MovieModel({
     this.adult,
     this.backdropPath,
     this.genreIds,
@@ -31,13 +33,24 @@ class MovieModel extends Equatable {
     this.video,
     this.voteAverage,
     this.voteCount,
-  });
+  }) : super(
+          id: id,
+          title: title,
+          overview: overview,
+          posterPath: posterPath,
+          backdropPath: backdropPath,
+          voteAverage: voteAverage,
+          voteCount: voteCount,
+          releaseDate: releaseDate,
+          isFavorite: false,
+          popularity: popularity,
+        );
 
   factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
         adult: json['adult'] as bool?,
         backdropPath: json['backdrop_path'] as String?,
         genreIds: json['genre_ids'] as List<int>?,
-        id: json['id'] as int?,
+        id: json['id'] as int,
         originalLanguage: json['original_language'] as String?,
         originalTitle: json['original_title'] as String?,
         overview: json['overview'] as String?,
@@ -66,24 +79,4 @@ class MovieModel extends Equatable {
         'vote_average': voteAverage,
         'vote_count': voteCount,
       };
-
-  @override
-  List<Object?> get props {
-    return [
-      adult,
-      backdropPath,
-      genreIds,
-      id,
-      originalLanguage,
-      originalTitle,
-      overview,
-      popularity,
-      posterPath,
-      releaseDate,
-      title,
-      video,
-      voteAverage,
-      voteCount,
-    ];
-  }
 }
