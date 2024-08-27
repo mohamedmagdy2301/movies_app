@@ -8,8 +8,8 @@ import 'package:movies_app/features/home/domain/use%20case/fetch_movies_use_case
 part 'movies_state.dart';
 
 class MoviesCubit extends Cubit<MoviesState> {
-  MoviesCubit(this.fetchMoviesUseCase) : super(MoviesInitial());
-  FetchMoviesUseCase fetchMoviesUseCase;
+  MoviesCubit({required this.fetchMoviesUseCase}) : super(MoviesInitial());
+  final FetchMoviesUseCase fetchMoviesUseCase;
 
   Future<void> fetchMoviesInCubit() async {
     emit(MoviesLoading());
