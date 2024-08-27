@@ -9,7 +9,7 @@ class FetchMoviesUseCase implements UseCase<List<MovieEntity>, NoParams> {
   FetchMoviesUseCase({required this.homeRepo});
 
   @override
-  Future<Either<Failure, List<MovieEntity>>> call([void params]) async {
+  Future<Either<Failure, List<MovieEntity>>> call([NoParams? params]) async {
     return await homeRepo.fetchMovies();
   }
 }
