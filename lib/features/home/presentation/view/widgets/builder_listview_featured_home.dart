@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/core/widgets/custom_circular_progress_loading.dart';
+import 'package:movies_app/core/widgets/custom_failure_message.dart';
 import 'package:movies_app/features/home/presentation/manage/movies_cubit/movies_cubit.dart';
 import 'package:movies_app/features/home/presentation/view/widgets/custom_listview_featured_home.dart';
 
@@ -8,8 +10,18 @@ class BuilderListviewFeaturedHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MoviesCubit, MoviesState>(builder: (context, state) {
-      return const CustomListViewFeaturedHome();
-    });
+    return SliverToBoxAdapter(
+      child: BlocBuilder<MoviesCubit, MoviesState>(
+        builder: (context, state) {
+          if (state is MoviesSuccess) {
+            return const CustomListViewFeaturedHome();
+          } else if (state is MoviesFailure) {
+            return CustomFailureMessage(state.errMessage);
+          } else {
+            return const CustomCircularProgressLoading();
+          }
+        },
+      ),
+    );
   }
 }

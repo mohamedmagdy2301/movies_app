@@ -9,7 +9,7 @@ abstract class LocalDataSourcesHome {
 class LocalDataSourcesHomeImpl extends LocalDataSourcesHome {
   @override
   List<MovieEntity> fetchMovies() {
-    Box<MovieEntity> moviesBox = Hive.box(kMoviesBox);
+    Box<MovieEntity> moviesBox = Hive.box<MovieEntity>(kMoviesBox);
     List<MovieEntity> moviesList = moviesBox.values.toList();
     return moviesList;
   }

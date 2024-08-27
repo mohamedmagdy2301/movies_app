@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class CustomFailureMessage extends StatelessWidget {
-  const CustomFailureMessage({super.key, required this.errorMessage});
+  const CustomFailureMessage(this.errorMessage, {super.key});
   final String errorMessage;
   @override
   Widget build(BuildContext context) {

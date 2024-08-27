@@ -9,7 +9,7 @@ class CustomCircularProgressLoading extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Center(
         child: CircularProgressIndicator(
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: Color.fromARGB(255, 196, 3, 3),
           strokeWidth: 3,
           backgroundColor: Color.fromARGB(255, 83, 83, 83),
           strokeAlign: 4,
