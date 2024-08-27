@@ -1,3 +1,5 @@
+import 'package:hive/hive.dart';
+import 'package:movies_app/core/constant.dart';
 import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 
 abstract class LocalDataSourcesHome {
@@ -7,7 +9,8 @@ abstract class LocalDataSourcesHome {
 class LocalDataSourcesHomeImpl extends LocalDataSourcesHome {
   @override
   List<MovieEntity> fetchMovies() {
-    List<MovieEntity> moviesList = [];
+    Box<MovieEntity> moviesBox = Hive.box(kMoviesBox);
+    List<MovieEntity> moviesList = moviesBox.values.toList();
     return moviesList;
   }
 }

@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:movies_app/features/home/domain/repo/home_repo.dart';
+import 'package:movies_app/core/errors/failure.dart';
 
 class NoParams {}
 
