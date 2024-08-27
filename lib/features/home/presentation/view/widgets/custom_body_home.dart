@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/constant.dart';
+import 'package:movies_app/features/home/presentation/view/widgets/builder_listview_featured_home.dart';
 import 'package:movies_app/features/home/presentation/view/widgets/custom_appbar_home.dart';
 import 'package:movies_app/features/home/presentation/view/widgets/custom_gridview_home.dart';
-import 'package:movies_app/features/home/presentation/view/widgets/custom_listview_featured_home.dart';
 import 'package:movies_app/features/home/presentation/view/widgets/custom_tapbar_home.dart';
 
 class CustomBodyHome extends StatelessWidget {
@@ -13,7 +13,7 @@ class CustomBodyHome extends StatelessWidget {
     return NestedScrollView(
       headerSliverBuilder: (context, innerBoxIsScrolled) => [
         const CustomAppBarHome(),
-        const CustomListViewFeaturedHome(),
+        const BuilderListviewFeaturedHome(),
         const CustomTapbarHome(),
       ],
       body: const TabBarView(
