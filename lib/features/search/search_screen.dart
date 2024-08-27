@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/widgets/custom_appbar_search.dart';
 import 'package:movies_app/features/search/widgets/custom_body_search.dart';
@@ -10,10 +9,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: CustomAppBar(
-        titleAppBar: 'Search',
-        iconAppBar: CupertinoIcons.search,
-      ),
+      appBar: CustomAppBar(titleAppBar: 'Search'),
       body: Column(
         children: [
           CustomTextFieldSearch(),

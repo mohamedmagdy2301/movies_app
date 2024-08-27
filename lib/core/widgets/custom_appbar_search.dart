@@ -1,24 +1,27 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
     required this.titleAppBar,
-    required this.iconAppBar,
+    this.leadingIcon,
   });
   final String titleAppBar;
-  final IconData iconAppBar;
+  final Widget? leadingIcon;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       centerTitle: true,
       title: Text(titleAppBar),
+      elevation: 0,
+      leading: leadingIcon,
       backgroundColor: Colors.transparent,
-      actions: [
+      actions: const [
         Padding(
-          padding: const EdgeInsets.only(right: 10),
-          child: Icon(iconAppBar, color: Colors.white),
+          padding: EdgeInsets.only(right: 10),
+          child: Icon(CupertinoIcons.info, color: Colors.white),
         ),
       ],
     );
