@@ -43,6 +43,7 @@ dependencies:
   hive: ^2.2.3
   flutter_bloc: ^8.1.6
   get_it: ^7.7.0
+  cached_network_image: ^3.4.1
 
 
 dev_dependencies:
