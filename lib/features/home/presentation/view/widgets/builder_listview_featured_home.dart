@@ -14,7 +14,7 @@ class BuilderListviewFeaturedHome extends StatelessWidget {
       child: BlocBuilder<MoviesCubit, MoviesState>(
         builder: (context, state) {
           if (state is MoviesSuccess) {
-            return const CustomListViewFeaturedHome();
+            return CustomListViewFeaturedHome(movieList: state.moviesList);
           } else if (state is MoviesFailure) {
             return CustomFailureMessage(state.errMessage);
           } else {
