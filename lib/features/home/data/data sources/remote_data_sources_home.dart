@@ -1,3 +1,5 @@
+import 'package:hive/hive.dart';
+import 'package:movies_app/core/constant.dart';
 import 'package:movies_app/core/models/movie.dart';
 import 'package:movies_app/core/utils/api_service.dart';
 import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
@@ -13,14 +15,21 @@ class RemoteDataSourcesHomeImpl extends RemoteDataSourcesHome {
   @override
   Future<List<MovieEntity>> fetchMovies() async {
     Map<String, dynamic> responseData = await apiService.get('popular');
-    List<MovieEntity> moviesList = [];
-    addResultToJsonModel(responseData, moviesList);
-    return moviesList;
+    List<MovieEntity> movies = addResultToJsonModel(responseData);
+    saveMoviesInLocalDataSources(movies);
+    return movies;
   }
 
-  void addResultToJsonModel(responseData, List<MovieEntity> moviesList) {
+  void saveMoviesInLocalDataSources(List<MovieEntity> movies) {
+    Box<MovieEntity> moviesBox = Hive.box<MovieEntity>(kMoviesBox);
+    moviesBox.addAll(movies);
+  }
+
+  List<MovieEntity> addResultToJsonModel(responseData) {
+    List<MovieEntity> moviesList = [];
     for (var result in responseData['results']) {
       moviesList.add(MovieModel.fromJson(result));
     }
+    return moviesList;
   }
 }
