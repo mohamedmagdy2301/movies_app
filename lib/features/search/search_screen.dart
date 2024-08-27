@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/features/search/widgets/custom_appbar_search.dart';
+import 'package:movies_app/features/search/widgets/custom_body_search.dart';
 import 'package:movies_app/features/search/widgets/custom_textfield_search.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -12,6 +13,7 @@ class SearchScreen extends StatelessWidget {
       body: Column(
         children: [
           CustomTextFieldSearch(),
+          CustomBodySearch(),
         ],
       ),
     );
