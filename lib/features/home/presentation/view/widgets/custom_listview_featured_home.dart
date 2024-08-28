@@ -33,8 +33,8 @@ class _CustomListViewFeaturedHomeState
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.fastOutSlowIn,
                 padding: _index == index
-                    ? const EdgeInsets.symmetric(horizontal: 5)
-                    : const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
+                    ? const EdgeInsets.symmetric(horizontal: 8)
+                    : const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 child:
                     CustomItemFeaturedHome(movieImage: widget.movieList[index]),
               ),
