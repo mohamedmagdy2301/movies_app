@@ -17,7 +17,7 @@ class MovieApp extends StatelessWidget {
           create: (context) {
             return MoviesCubit(
               fetchMoviesUseCase: getIt.get<FetchMoviesUseCase>(),
-            )..fetchMoviesInCubit("top_rated");
+            )..fetchMoviesInCubit("top_rated", 1);
           },
         ),
       ],

@@ -12,7 +12,7 @@ class CustomItemFeaturedHome extends StatelessWidget {
     return movieImage.posterPath == null
         ? const SizedBox()
         : AspectRatio(
-            aspectRatio: 2.7 / 4,
+            aspectRatio: 2.65 / 4,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),
               child: CachedNetworkImage(

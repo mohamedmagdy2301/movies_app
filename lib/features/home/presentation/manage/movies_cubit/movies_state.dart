@@ -22,3 +22,11 @@ final class MoviesFailure extends MoviesState {
 
   const MoviesFailure({required this.errMessage});
 }
+
+final class MoviesPagenationLoading extends MoviesState {}
+
+final class MoviesPagenationFailure extends MoviesState {
+  final String errMessage;
+
+  const MoviesPagenationFailure({required this.errMessage});
+}
