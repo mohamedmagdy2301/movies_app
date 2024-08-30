@@ -11,6 +11,10 @@ Future<void> main() async {
   setupSericeLocator();
   await Hive.initFlutter();
   Hive.registerAdapter(MovieEntityAdapter());
-  await Hive.openBox<MovieEntity>(kMoviesBox);
+  await Hive.openBox<MovieEntity>(kPopularMoviesBox);
+  await Hive.openBox<MovieEntity>(kTopRatedMoviesBox);
+  await Hive.openBox<MovieEntity>(kNowPlayingMoviesBox);
+  await Hive.openBox<MovieEntity>(kUpcomingMoviesBox);
+
   runApp(const MovieApp());
 }

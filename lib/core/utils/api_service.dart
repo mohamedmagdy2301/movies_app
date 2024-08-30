@@ -7,7 +7,7 @@ class ApiService {
   Dio dio;
   Future<dynamic> get(String endpoint) async {
     final response =
-        await dio.get("$_baseUrl$endpoint?api_key=$_apiKey&page=1");
+        await dio.get("$_baseUrl$endpoint?api_key=$_apiKey&page=2");
     return response.data;
   }
 }

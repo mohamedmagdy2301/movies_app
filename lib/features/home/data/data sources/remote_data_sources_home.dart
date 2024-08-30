@@ -5,7 +5,7 @@ import 'package:movies_app/core/utils/api_service.dart';
 import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 
 abstract class RemoteDataSourcesHome {
-  Future<List<MovieEntity>> fetchMovies();
+  Future<List<MovieEntity>> fetchMovies(String category);
 }
 
 class RemoteDataSourcesHomeImpl extends RemoteDataSourcesHome {
@@ -13,15 +13,15 @@ class RemoteDataSourcesHomeImpl extends RemoteDataSourcesHome {
   RemoteDataSourcesHomeImpl({required this.apiService});
 
   @override
-  Future<List<MovieEntity>> fetchMovies() async {
-    Map<String, dynamic> responseData = await apiService.get('popular');
+  Future<List<MovieEntity>> fetchMovies(String category) async {
+    Map<String, dynamic> responseData = await apiService.get(category);
     List<MovieEntity> movies = addResultToJsonModel(responseData);
-    saveMoviesInLocalDataSources(movies);
+    saveMoviesInLocalDataSources(movies, category);
     return movies;
   }
 
-  void saveMoviesInLocalDataSources(List<MovieEntity> movies) {
-    Box<MovieEntity> moviesBox = Hive.box<MovieEntity>(kMoviesBox);
+  void saveMoviesInLocalDataSources(List<MovieEntity> movies, String category) {
+    Box<MovieEntity> moviesBox = Hive.box<MovieEntity>(category);
     moviesBox.addAll(movies);
   }
 

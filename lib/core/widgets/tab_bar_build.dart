@@ -9,7 +9,6 @@ class TabBarBuild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TabBar(
-      padding: const EdgeInsets.symmetric(vertical: 15),
       labelStyle: const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: 16,
@@ -20,26 +19,23 @@ class TabBarBuild extends StatelessWidget {
         fontSize: 15,
         color: ColorsManager.kLightGrey,
       ),
-      splashBorderRadius: BorderRadius.circular(10),
-      indicatorColor: const Color.fromARGB(192, 255, 255, 255),
+      splashBorderRadius: BorderRadius.circular(50),
+      indicatorColor: const Color.fromARGB(135, 255, 255, 255),
       indicatorWeight: 2,
       indicatorSize: TabBarIndicatorSize.tab,
-      indicatorPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 2),
-      indicator: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: ColorsManager.kGrey,
-      ),
+      // indicator: BoxDecoration(
+      //   borderRadius: BorderRadius.circular(10),
+      //   color: ColorsManager.kGrey,
+      //   border: Border.all(color: ColorsManager.kGrey),
+      // ),
       isScrollable: true,
       dividerHeight: 0,
       physics: const BouncingScrollPhysics(),
       tabAlignment: TabAlignment.center,
       tabs: const [
-        Tab(text: 'Programming'),
-        Tab(text: 'Science'),
-        Tab(text: 'Health'),
-        Tab(text: 'History'),
-        Tab(text: 'Sports'),
-        Tab(text: 'Technology'),
+        Tab(text: 'Now Playing'),
+        Tab(text: 'Upcoming'),
+        Tab(text: 'Popular'),
       ],
     );
   }

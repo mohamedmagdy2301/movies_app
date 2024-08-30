@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 import 'package:movies_app/features/home/presentation/view/screens/details_screen.dart';
 import 'package:movies_app/features/home/presentation/view/screens/home_screen.dart';
 
@@ -20,7 +21,8 @@ class GoRouterManager {
       ),
       GoRoute(
         path: kDetailsScreen,
-        builder: (context, state) => const DetailsMovieScreen(),
+        builder: (context, state) =>
+            DetailsMovieScreen(movieEntity: state.extra as MovieEntity),
       ),
     ],
   );

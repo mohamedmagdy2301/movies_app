@@ -11,9 +11,10 @@ class MoviesCubit extends Cubit<MoviesState> {
   MoviesCubit({required this.fetchMoviesUseCase}) : super(MoviesInitial());
   final FetchMoviesUseCase fetchMoviesUseCase;
 
-  Future<void> fetchMoviesInCubit() async {
+  Future<void> fetchMoviesInCubit(String category) async {
     emit(MoviesLoading());
-    Either<Failure, List<MovieEntity>> result = await fetchMoviesUseCase.call();
+    Either<Failure, List<MovieEntity>> result =
+        await fetchMoviesUseCase.call(category);
     result.fold((Failure failure) {
       return emit(MoviesFailure(errMessage: failure.message));
     }, (List<MovieEntity> moviesList) {

@@ -15,14 +15,15 @@ class HomeRepoImpl implements HomeRepo {
   });
 
   @override
-  Future<Either<Failure, List<MovieEntity>>> fetchMovies() async {
+  Future<Either<Failure, List<MovieEntity>>> fetchMovies(
+      String category) async {
     try {
       List<MovieEntity> movies;
-      movies = localDataSourcesHomeImpl.fetchMovies();
+      movies = localDataSourcesHomeImpl.fetchMovies(category);
       if (movies.isNotEmpty) {
         return right(movies);
       }
-      movies = await remoteDataSourcesHomeImpl.fetchMovies();
+      movies = await remoteDataSourcesHomeImpl.fetchMovies(category);
       return right(movies);
     } catch (e) {
       if (e is DioException) {

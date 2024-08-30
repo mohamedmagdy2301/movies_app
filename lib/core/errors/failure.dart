@@ -20,7 +20,7 @@ class ServerFailure extends Failure {
         return ServerFailure("Request to API server was cancelled");
       case DioExceptionType.badResponse:
         return ServerFailure.fromBadResponse(dioException.response!.statusCode!,
-            dioException.response!.data!["error"]["message"]);
+            dioException.response?.data?["status_message"] ?? "xxxxxxxx");
       case DioExceptionType.badCertificate:
         return ServerFailure("Bad Certificate");
       case DioExceptionType.connectionError:
@@ -44,7 +44,7 @@ class ServerFailure extends Failure {
       case 403:
         return ServerFailure("Forbidden Access\n$response");
       case 404:
-        return ServerFailure("Not Found any book");
+        return ServerFailure("Not Found any movie\n$response");
       case 409:
         return ServerFailure("Conflict Access\n$response");
       case 422:
