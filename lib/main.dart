@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:movies_app/core/constant.dart';
 import 'package:movies_app/core/utils/service_locator.dart';
+import 'package:movies_app/core/utils/simple_bloc_observer.dart';
 import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 import 'package:movies_app/movies_app.dart';
 
@@ -15,6 +17,6 @@ Future<void> main() async {
   await Hive.openBox<MovieEntity>(kTopRatedMoviesBox);
   await Hive.openBox<MovieEntity>(kNowPlayingMoviesBox);
   await Hive.openBox<MovieEntity>(kUpcomingMoviesBox);
-
+  Bloc.observer = SimpleBlocObserver();
   runApp(const MovieApp());
 }
