@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
@@ -23,6 +25,7 @@ class MoviesCubit extends Cubit<MoviesState> {
       if (pageNumber == 1) {
         return emit(MoviesFailure(errMessage: failure.message));
       } else {
+        log("Movies Pagenation Failure: ${failure.message}");
         return emit(MoviesPagenationFailure(errMessage: failure.message));
       }
     }, (List<MovieEntity> moviesList) {

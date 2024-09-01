@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        body: _tabs[_currentIndex],
+        body: SafeArea(child: _tabs[_currentIndex]),
         bottomNavigationBar: CustomBottomNavigationBar(
           currentIndex: _currentIndex,
           onTap: onTap,

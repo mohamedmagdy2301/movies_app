@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+
 part 'movie_entity.g.dart';
 
 @HiveType(typeId: 0)
@@ -10,7 +11,7 @@ class MovieEntity {
   @HiveField(1)
   final String? overview;
   @HiveField(2)
-  final String? posterPath;
+  String? posterPath;
   @HiveField(3)
   final String? backdropPath;
   @HiveField(4)
@@ -37,6 +38,7 @@ class MovieEntity {
     required this.popularity,
   });
 
-  // String get posterImageUrl => 'https://image.tmdb.org/t/p/w500$posterPath';
-  // String get backdropImageUrl => 'https://image.tmdb.org/t/p/w500$backdropPath';
+  String get posterImageUrl =>
+      'https://image.tmdb.org/t/p/w500${posterPath ?? "/1KJtjg3MQFnrfd7NXfs11z4HLwD.jpg"}';
+  String get backdropImageUrl => 'https://image.tmdb.org/t/p/w500$backdropPath';
 }

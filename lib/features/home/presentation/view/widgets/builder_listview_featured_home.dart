@@ -37,7 +37,6 @@ class _BuilderListviewFeaturedHomeState
             );
           }
           if (state is MoviesPagenationFailure) {
-            log(state.errMessage);
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(state.errMessage),

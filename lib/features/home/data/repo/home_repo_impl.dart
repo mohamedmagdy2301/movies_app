@@ -19,12 +19,15 @@ class HomeRepoImpl implements HomeRepo {
       category, pageNumber) async {
     try {
       List<MovieEntity> movies;
+
       movies = localDataSourcesHomeImpl.fetchMovies(category, pageNumber);
       if (movies.isNotEmpty) {
+        print('from local-------------');
         return right(movies);
       }
       movies =
           await remoteDataSourcesHomeImpl.fetchMovies(category, pageNumber);
+      print('from remote-------------');
       return right(movies);
     } catch (e) {
       if (e is DioException) {

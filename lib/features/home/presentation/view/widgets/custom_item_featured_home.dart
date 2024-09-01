@@ -16,8 +16,7 @@ class CustomItemFeaturedHome extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),
               child: CachedNetworkImage(
-                imageUrl:
-                    "https://image.tmdb.org/t/p/w500${movieImage.posterPath}",
+                imageUrl: movieImage.posterImageUrl,
                 placeholder: (context, url) => Shimmer.fromColors(
                   enabled: true,
                   baseColor: const Color.fromARGB(136, 92, 92, 92),

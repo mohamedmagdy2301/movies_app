@@ -22,19 +22,37 @@ class _CustomListViewFeaturedHomeState
   @override
   void initState() {
     super.initState();
-    _scrollController.addListener(addListener);
+    _scrollController.addListener(_scrollListener);
   }
 
-  void addListener() {
+  // void addListener() {
+  //   var currentPosition = _scrollController.position.pixels;
+  //   var maxScrollExtent = _scrollController.position.maxScrollExtent;
+  //   if (currentPosition >= maxScrollExtent) {
+  //     if (!isLoading) {
+  //       isLoading = true;
+  //       BlocProvider.of<MoviesCubit>(context)
+  //           .fetchMoviesInCubit("top_rated", nextPage++);
+  //       isLoading = false;
+  //     }
+  //   }
+  // }
+  void _scrollListener() {
     var currentPosition = _scrollController.position.pixels;
     var maxScrollExtent = _scrollController.position.maxScrollExtent;
-    if (currentPosition >= 0.7 * maxScrollExtent) {
-      if (!isLoading) {
+
+    if (currentPosition >= 0.7 * maxScrollExtent && !isLoading) {
+      setState(() {
         isLoading = true;
-        BlocProvider.of<MoviesCubit>(context)
-            .fetchMoviesInCubit("top_rated", nextPage++);
-        isLoading = false;
-      }
+      });
+
+      BlocProvider.of<MoviesCubit>(context)
+          .fetchMoviesInCubit("top_rated", nextPage++)
+          .then((_) {
+        setState(() {
+          isLoading = false;
+        });
+      });
     }
   }
 
