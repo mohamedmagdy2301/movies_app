@@ -18,8 +18,12 @@ class LocalDataSourcesHomeImpl extends LocalDataSourcesHome {
     int endIndex = ((pageNumber + 1) * 10) - 1;
     if (category == 'popular') {
       Box<MovieEntity> moviesBox = Hive.box<MovieEntity>(kPopularMoviesBox);
-      List<MovieEntity> moviesList = moviesBox.values.toList();
-      return moviesList;
+
+      if (startIndex >= moviesBox.values.length ||
+          endIndex > moviesBox.values.length) {
+        return [];
+      }
+      return moviesBox.values.toList().sublist(startIndex, endIndex);
     } else if (category == 'top_rated') {
       Box<MovieEntity> moviesBox = Hive.box<MovieEntity>(kTopRatedMoviesBox);
 
@@ -30,12 +34,20 @@ class LocalDataSourcesHomeImpl extends LocalDataSourcesHome {
       return moviesBox.values.toList().sublist(startIndex, endIndex);
     } else if (category == 'now_playing') {
       Box<MovieEntity> moviesBox = Hive.box<MovieEntity>(kNowPlayingMoviesBox);
-      List<MovieEntity> moviesList = moviesBox.values.toList();
-      return moviesList;
+
+      if (startIndex >= moviesBox.values.length ||
+          endIndex > moviesBox.values.length) {
+        return [];
+      }
+      return moviesBox.values.toList().sublist(startIndex, endIndex);
     } else if (category == 'upcoming') {
       Box<MovieEntity> moviesBox = Hive.box<MovieEntity>(kUpcomingMoviesBox);
-      List<MovieEntity> moviesList = moviesBox.values.toList();
-      return moviesList;
+
+      if (startIndex >= moviesBox.values.length ||
+          endIndex > moviesBox.values.length) {
+        return [];
+      }
+      return moviesBox.values.toList().sublist(startIndex, endIndex);
     } else {
       return [];
     }
